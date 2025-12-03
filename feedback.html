@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Feedback senden</title>
+</head>
+<body>
+  <h1>🐾 Feedback-Formular</h1>
+  <form action="feedback-ergebnis.html" method="get">
+    <label for="name">Name (optional):</label><br />
+    <input type="text" id="name" name="name" /><br /><br />
+
+    <label for="type">Art des Feedbacks:</label><br />
+    <select id="type" name="type" required>
+      <option value="">Bitte auswählen …</option>
+      <option value="Bug">🐞 Bug melden</option>
+      <option value="Idee">💡 Feature-Idee</option>
+      <option value="Lob">🌟 Lob / Allgemein</option>
+    </select><br /><br />
+
+    <label for="message">Nachricht:</label><br />
+    <textarea id="message" name="message" rows="5" cols="40" required></textarea><br /><br />
+
+    <button type="submit">📨 Absenden</button>
+  </form>
+</body>
+</html>

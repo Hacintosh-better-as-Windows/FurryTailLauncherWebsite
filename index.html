@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FurryTail Launcher</title>
+  <style>
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #fce4ec, #f3e5f5);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 1s ease-in;
+    }
+
+    header {
+      background-color: #8e24aa;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
+      animation: bounce 2s infinite;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    h1, h2 {
+      color: #6a1b9a;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #ab47bc;
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 0.5rem 0;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    li::before {
+      content: "✨ ";
+      color: #ab47bc;
+    }
+
+    .coming-soon {
+      font-weight: bold;
+      color: #d32f2f;
+      animation: pulse 1.5s infinite;
+    }
+
+    .download-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #8e24aa;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      animation: bounce 2s infinite;
+    }
+
+    .download-button:hover {
+      background-color: #ab47bc;
+      transform: scale(1.05);
+    }
+
+    .download-button:active {
+      transform: rotate(-3deg) scale(0.98);
+    }
+
+    .social-links {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      text-decoration: none;
+      color: #6a1b9a;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #ab47bc;
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      header img {
+        width: 80px;
+      }
+
+      main {
+        padding: 1rem;
+      }
+    }
+    .download-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.os-card {
+  flex: 1 1 220px;
+  border-radius: 16px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1s ease-in;
+  background: #fff;
+  position: relative;
+}
+
+.os-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.os-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.os-card p {
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.os-card.available {
+  border-top: 6px solid #8e24aa;
+}
+
+.os-card.coming {
+  border-top: 6px solid #ff9800;
+}
+
+.os-card.never {
+  border-top: 6px solid #d32f2f;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.status-available {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.status-coming {
+  background-color: #ffe0b2;
+  color: #ef6c00;
+  animation: pulse 2s infinite;
+}
+
+.status-never {
+  background-color: #ffcdd2;
+  color: #c62828;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="furry.png" alt="FurryTail Launcher Logo"style=" width: 200px; margin-bottom: 1rem;"/>
+    <h1>🐾 Welcome to FurryTail Launcher 🐾</h1>
+    <p>A cozy Minecraft client for the fluffiest community</p>
+  </header>
+
+  <main>
+   <section>
+  <h2>About the Project</h2>
+  <p>
+    FurryTail Launcher is a custom Minecraft client built on top of MultiMC, designed with love and intention for a vibrant, inclusive community. Whether you're a furry, femboy, catboy, catgirl, or just someone who enjoys cozy vibes and creative expression, this launcher is meant to feel like home.
+  </p>
+  <p>
+    Created by Leander—a passionate teen developer coding in his free time—FurryTail Launcher isn’t just about launching Minecraft. It’s about launching friendships, shared experiences, and a space where everyone feels seen. The project began as a personal experiment and quickly grew into a community-driven initiative focused on accessibility, aesthetics, and emotional connection.
+  </p>
+  <p>
+    The launcher is lightweight, fast, and modular. It features intuitive modpack management, custom branding, and a transparent roadmap. Development is open-source and guided by community feedback. Every update is a step toward building a digital living room for the fluffiest corner of the internet.
+  </p>
+</section>
+
+
+    <section>
+      <h2>Features</h2>
+      <ul>
+        <li>MultiMC-based launcher with custom branding</li>
+        <li>Lightweight and fast performance</li>
+        <li>Community-focused design</li>
+        <li>Easy modpack management</li>
+        <li>Regular updates and roadmap transparency</li>
+      </ul>
+    </section>
+
+    <section>
+  <h2>Download</h2>
+  <div class="download-grid">
+
+    <!-- Available -->
+    <div class="os-card available">
+      <h3>🐧 Debian / Ubuntu</h3>
+      <p>Ready to install (.deb)</p>
+      <a href="https://raw.githubusercontent.com/Hacintosh-better-as-Windows/FurryTailLauncherWebsite/main/furrytaillauncher_0.0.1-1_amd64.deb" target="_blank" class="download-button">
+        ⬇️ Download .deb
+      </a>
+      <div class="status-badge status-available">✅ Available</div>
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="os-card coming">
+      <h3>🖥️ Windows</h3>
+      <p>Installer in progress</p>
+      <div class="status-badge status-coming">⏳ Coming Soon</div>
+    </div>
+
+    <div class="os-card coming">
+      <h3>🍎 macOS</h3>
+      <p>DMG support planned</p>
+      <div class="status-badge status-coming">⏳ Coming Soon</div>
+    </div>
+
+    <div class="os-card available">
+  <h3>🎩 Fedora</h3>
+  <p>Ready to install (.rpm)</p>
+  <a href="https://raw.githubusercontent.com/Hacintosh-better-as-Windows/FurryTailLauncherWebsite/main/furrytail-launcher-0.0.1-Linux.rpm" target="_blank" class="download-button">
+    ⬇️ Download .rpm
+  </a>
+  <div class="status-badge status-available">✅ Available</div>
+</div>
+
+
+    <!-- Not Supported -->
+    <div class="os-card never">
+      <h3>🐚 BSD</h3>
+      <p>Not planned</p>
+      <div class="status-badge status-never">❌ Not Supported</div>
+    </div>
+
+    <div class="os-card never">
+      <h3>☀️ Solaris</h3>
+      <p>Not planned</p>
+      <div class="status-badge status-never">❌ Not Supported</div>
+    </div>
+
+    <div class="os-card never">
+      <h3>🧪 Other Unix</h3>
+      <p>Not planned</p>
+      <div class="status-badge status-never">❌ Not Supported</div>
+    </div>
+
+    <div class="os-card never">
+      <h3>🌿 Haiku OS</h3>
+      <p>Never supported</p>
+      <div class="status-badge status-never">❌ Not Supported</div>
+    </div>
+
+    <div class="os-card never">
+      <h3>🧬 ReactOS</h3>
+      <p>Never supported</p>
+      <div class="status-badge status-never">❌ Not Supported</div>
+    </div>
+
+    <div class="os-card never">
+      <h3>💻 ChromeOS</h3>
+      <p>Not supported</p>
+      <div class="status-badge status-never">❌ Not Supported</div>
+    </div>
+
+    <div class="os-card never">
+      <h3>📱 Android</h3>
+      <p>Not supported</p>
+      <div class="status-badge status-never">❌ Not Supported</div>
+    </div>
+
+    <div class="os-card never">
+      <h3>📱 iOS</h3>
+      <p>Never supported</p>
+      <div class="status-badge status-never">❌ Not Supported</div>
+    </div>
+
+  </div>
+</section>
+
+   <section>
+  <h2>Coming Soon</h2>
+  <p>
+    FurryTail Launcher is still in its early stages, but the roadmap is packed with exciting features that are actively being developed or planned:
+  </p>
+  <ul>
+    <li>Integrated voice chat for in-game communication without external apps</li>
+    <li>Custom themes and launcher skins to match your personal style</li>
+    <li>Discord integration for status sharing, modpack syncing, and chatting</li>
+    <li>Achievements and stats tracking with community badges</li>
+    <li>Cloud sync for modpacks across devices</li>
+    <li>Accessibility features like screen reader support and keyboard navigation</li>
+    <li>Multilingual support starting with English and German</li>
+    <li>Launcher extensions via a plugin system (planned)</li>
+  </ul>
+  <p>
+    Most of these features are already in prototyping or testing. You can follow development progress on Discord, GitHub, or Reddit—and even contribute ideas or code if you’d like!
+  </p>
+</section>
+
+
+    <section>
+      <h2>Join the Community</h2>
+      <div class="social-links">
+        <a href="https://www.patreon.com/c/FurrytailLauncher?vanity=user" target="_blank">💖 Support on Patreon</a>
+        <a href="https://discord.gg/3hRbytxQ" target="_blank">💬 Join our Discord</a>
+        <a href="https://www.reddit.com/r/FurryTailLauncher" target="_blank">📢 Visit our Reddit</a>
+        <a href="changelog.html">📜 Changelog ansehen
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with ❤️ by Leander · FurryTail Launcher © 2025
+  </footer>
+</body>
+</html>

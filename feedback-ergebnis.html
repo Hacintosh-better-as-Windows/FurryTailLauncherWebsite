@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Feedback erhalten</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f3e5f5;
+      padding: 2rem;
+      color: #333;
+    }
+    .box {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      color: #6a1b9a;
+    }
+    p {
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🎉 Dein Feedback wurde übermittelt!</h1>
+    <p><strong>Name:</strong> <span id="name">–</span></p>
+    <p><strong>Art des Feedbacks:</strong> <span id="type">–</span></p>
+    <p><strong>Nachricht:</strong><br /><span id="message">–</span></p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("name").textContent = params.get("name") || "Anonym";
+    document.getElementById("type").textContent = params.get("type") || "Unbekannt";
+    document.getElementById("message").textContent = params.get("message") || "Keine Nachricht übermittelt.";
+  </script>
+</body>
+</html>

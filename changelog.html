@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FurryTail Launcher – Changelog</title>
+  <style>
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { translateY(0); opacity: 1; } }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #fce4ec, #f3e5f5);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 1s ease-in;
+    }
+
+    header {
+      background-color: #8e24aa;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    h2 {
+      color: #6a1b9a;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #ab47bc;
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+
+    .changelog-entry {
+      border-left: 6px solid #8e24aa;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      animation: fadeIn 1s ease-in;
+    }
+
+    .changelog-entry h3 {
+      margin: 0;
+      color: #6a1b9a;
+    }
+
+    .changelog-entry .date {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .changelog-entry ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .changelog-entry li::before {
+      content: "✨ ";
+      color: #ab47bc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #8e24aa;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: #ab47bc;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📜 FurryTail Launcher – Changelog</h1>
+    <p>Alle Änderungen und Updates im Überblick</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Version 0.0.1</h2>
+      <div class="changelog-entry">
+        <h3>Erste Release</h3>
+        <div class="date">📅 15. November 2025</div>
+        <ul>
+          <li>Initiale Veröffentlichung für Debian/Ubuntu (.deb)</li>
+          <li>Offizieller Fedora Build (rpm-ostree)</li>
+          <li>Grundlegende MultiMC-Integration</li>
+          <li>Custom Branding und Launcher-UI</li>
+          <li>Community-Links zu Discord, Reddit und Patreon</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Version 0.0.2 (Coming Soon)</h2>
+      <div class="changelog-entry">
+        <h3>Geplante Features</h3>
+        <div class="date">📅 Erwartet: Dezember 2025</div>
+        <ul>
+          <li>Windows Installer</li>
+          <li>macOS DMG Support</li>
+          <li>Launcher Themes (Furry, Catboy/Catgirl, Femboy)</li>
+          <li>Verbesserte Modpack-Verwaltung</li>
+        </ul>
+      </div>
+    </section>
+
+    <a href="index.html" class="back-link">⬅️ Zurück zur Hauptseite</a>
+  </main>
+
+  <footer>
+    Made with ❤️ by Leander · FurryTail Launcher © 2025
+  </footer>
+</body>
+</html>
