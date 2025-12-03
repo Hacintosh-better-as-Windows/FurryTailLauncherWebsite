@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TaczUnlimited (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TaczUnlimited (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
