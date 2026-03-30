@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "TaczUltimate": {
+      "commandName": "MsixPackage"
+    }
+  }
+}

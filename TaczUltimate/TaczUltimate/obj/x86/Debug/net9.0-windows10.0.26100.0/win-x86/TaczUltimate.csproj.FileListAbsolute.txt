@@ -1,0 +1,8 @@
+C:\Users\admin\source\repos\TaczUltimate\TaczUltimate\obj\x86\Debug\net9.0-windows10.0.26100.0\win-x86\App.g.i.cs
+C:\Users\admin\source\repos\TaczUltimate\TaczUltimate\obj\x86\Debug\net9.0-windows10.0.26100.0\win-x86\App.g.cs
+C:\Users\admin\source\repos\TaczUltimate\TaczUltimate\obj\x86\Debug\net9.0-windows10.0.26100.0\win-x86\MainPage.g.i.cs
+C:\Users\admin\source\repos\TaczUltimate\TaczUltimate\obj\x86\Debug\net9.0-windows10.0.26100.0\win-x86\MainPage.g.cs
+C:\Users\admin\source\repos\TaczUltimate\TaczUltimate\obj\x86\Debug\net9.0-windows10.0.26100.0\win-x86\App.xaml
+C:\Users\admin\source\repos\TaczUltimate\TaczUltimate\obj\x86\Debug\net9.0-windows10.0.26100.0\win-x86\MainPage.xaml
+C:\Users\admin\source\repos\TaczUltimate\TaczUltimate\obj\x86\Debug\net9.0-windows10.0.26100.0\win-x86\App.xbf
+C:\Users\admin\source\repos\TaczUltimate\TaczUltimate\obj\x86\Debug\net9.0-windows10.0.26100.0\win-x86\MainPage.xbf

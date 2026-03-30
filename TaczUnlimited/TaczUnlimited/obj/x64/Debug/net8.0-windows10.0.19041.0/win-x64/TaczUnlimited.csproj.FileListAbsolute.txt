@@ -1,0 +1,4 @@
+C:\Users\admin\source\repos\TaczUnlimited\TaczUnlimited\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\TaczUnlimited.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\source\repos\TaczUnlimited\TaczUnlimited\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\TaczUnlimited.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\TaczUnlimited\TaczUnlimited\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\TaczUnlimited.AssemblyInfo.cs
+C:\Users\admin\source\repos\TaczUnlimited\TaczUnlimited\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\TaczUnlimited.csproj.CoreCompileInputs.cache
